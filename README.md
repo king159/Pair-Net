@@ -126,11 +126,11 @@ python tools/test.py \
 | ResNet-50 | Faster R-CNN | VCTree            | 9.7   | 10.2  | 10.2   | 20.6 | 22.1 | 22.5  | -           |
 | ResNet-50 | Faster R-CNN | GPS-Net           | 7.0   | 7.5   | 7.7    | 17.8 | 19.6 | 20.1  | -           |
 | ResNet-50 | DETR         | PSGFormer         | 14.5  | 17.4  | 18.7   | 18.0 | 19.6 | 20.1  | -           |
-| ResNet-50 | Mask2Former  | PSGFormer$^{+}$   | 16.6  | 19.4  | 20.3   | 18.9 | 21.5 | 22.4  | -           |
-| ResNet-50 | Mask2Former  | Pair-Net (Ours)   | 24.7  | 28.5  | 30.6   | 29.6 | 35.6 | 39.6  | coming soon |
-| Swin-B    | Mask2Former  | Pair-Net$^{\dag}$ | 25.4  | 28.2  | 29.7   | 33.3 | 39.3 | 42.4  | coming soon |
+| ResNet-50 | Mask2Former  | PSGFormer<sup>+</sup>   | 16.6  | 19.4  | 20.3   | 18.9 | 21.5 | 22.4  | -           |
+| ResNet-50 | Mask2Former  | **Pair-Net (Ours)**   | **24.7**  | **28.5**  | **30.6**   | **29.6** | **35.6** | **39.6**  | coming soon |
+| Swin-B    | Mask2Former  | Pair-Net<sup>&dagger;</sup> | 25.4  | 28.2  | 29.7   | 33.3 | 39.3 | 42.4  | coming soon |
 
-$^{+}$: Replace the backbone of PSGFormer to Mask2Former. $^{\dag}$: Pair-Net with Swin-B as backbone.
+$^{+}$: Replace the backbone of PSGFormer to Mask2Former. <sup>&dagger;</sup>: Pair-Net with Swin-B as backbone.
 
 
 ## Acknowledgements
