@@ -1,20 +1,20 @@
 # Pair then Relation: Pair-Net for Panoptic Scene Graph Generation
 
 <p align="center">
-    <br>
-    <a href="https://king159.github.io/" target='_blank'> Jinghao Wang*</a>,&nbsp;
-    Zhengyu Wen*,&nbsp;
-    <a href="https://lxtgh.github.io/" target='_blank'> Xiangtai Li</a>,&nbsp;
-      <a href="http://jingkang50.github.io/" target='_blank'>Jingkang Yang</a>,&nbsp;
-      <a href="https://gseancdat.github.io/" target='_blank'>Zujing Guo</a>,&nbsp;
-      <a href="https://liuziwei7.github.io/" target='_blank'>Ziwei Liu<sup>&#x2709</sup></a>
-    <br>
+  <br>
+  <a href="https://king159.github.io/" target="_blank">Jinghao Wang*</a>,&nbsp;
+  Zhengyu Wen*,&nbsp;
+  <a href="https://lxtgh.github.io/" target="_blank">Xiangtai Li</a>,&nbsp;
+  <a href="https://gseancdat.github.io/" target="_blank">Zujing Guo</a>,&nbsp;
+  <a href="http://jingkang50.github.io/" target="_blank">Jingkang Yang</a>,&nbsp;
+  <a href="https://liuziwei7.github.io/" target="_blank">Ziwei Liu<sup>&#x2709;</sup></a>
+  <br>
   S-Lab, Nanyang Technological University
   <br>
   <sup>*</sup> Equal Contribution&emsp;
-    <sup>&#x2709</sup> Corresponding Author
-  </p>
+  <sup>&#x2709;</sup> Corresponding Author
 </p>
+
 
 <img src="./doc/teaser.jpg" align="center" width="100%">
 
@@ -24,9 +24,11 @@
 ![](https://black.readthedocs.io/en/stable/_static/license.svg)
 ![](https://img.shields.io/badge/code%20style-black-000000.svg)
 
+[arXiv](https://arxiv.org/abs/2307.08699)
+
 ## Abstract
 
-Panoptic Scene Graph (PSG) is a challenging task in Scene Graph Generation (SGG) that aims to create a more comprehensive scene graph representation using panoptic segmentation instead of boxes. However, current PSG methods have limited performance, which can hinder downstream task development. To improve PSG methods, we conducted an in-depth analysis to identify the bottleneck of the current PSG models, finding that inter-object pair-wise recall is a crucial factor which was ignored by previous PSG methods. Based on this, we present a novel framework: **Pair then Relation (Pair-Net)**, which uses a Pair Proposal Network (PPN) to learn and filter sparse pair-wise relationships between subjects and objects. We also observed the sparse nature of object pairs and used this insight to design a lightweight Matrix Learner within the PPN. Through extensive ablation and analysis, our approach significantly improves upon leveraging the strong segmenter baseline. Notably, our approach achieves new state-of-the-art results on the PSG benchmark, with over 10% absolute gains compared to PSGFormer.
+Panoptic Scene Graph (PSG) is a challenging task in Scene Graph Generation (SGG) that aims to create a more comprehensive scene graph representation using panoptic segmentation instead of boxes. Compared to SGG, PSG has several challenging problems: pixel-level segment outputs and full relationship exploration (It also considers thing and stuff relation). Thus, current PSG methods have limited performance, which hinders downstream tasks or applications. The goal of this work aims to design a novel and strong baseline for PSG. To achieve that, we first conduct an in-depth analysis to identify the bottleneck of the current PSG models, finding that inter-object pair-wise recall is a crucial factor that was ignored by previous PSG methods. Based on this and the recent query-based frameworks, we present a novel framework: Pair then Relation (Pair-Net), which uses a Pair Proposal Network (PPN) to learn and filter sparse pair-wise relationships between subjects and objects. Moreover, we also observed the sparse nature of object pairs for both Motivated by this, we design a lightweight Matrix Learner within the PPN, which directly learn pair-wised relationships for pair proposal generation. Through extensive ablation and analysis, our approach significantly improves upon leveraging the segmenter solid baseline. Notably, our method achieves new state-of-the-art results on the PSG benchmark, with over 10\% absolute gains compared to PSGFormer. The code of this paper is publicly available at https://github.com/king159/Pair-Net.
 
 ## Codebase Structure
 
@@ -119,16 +121,16 @@ python tools/test.py \
 
 ### Results
 
-| BackBone  | Detector     | Model             | mR@20 | mR@50 | mR@100 | R@20 | R@50 | R@100 | Checkpoint  |
-| --------- | ------------ | ----------------- | ----- | ----- | ------ | ---- | ---- | ----- | ----------- |
-| ResNet-50 | Faster R-CNN | IMP               | 6.5   | 7.1   | 7.2    | 16.5 | 18.2 | 18.6  | -           |
-| ResNet-50 | Faster R-CNN | MOTIFS            | 9.1   | 9.6   | 9.7    | 20.0 | 21.7 | 22.0  | -           |
-| ResNet-50 | Faster R-CNN | VCTree            | 9.7   | 10.2  | 10.2   | 20.6 | 22.1 | 22.5  | -           |
-| ResNet-50 | Faster R-CNN | GPS-Net           | 7.0   | 7.5   | 7.7    | 17.8 | 19.6 | 20.1  | -           |
-| ResNet-50 | DETR         | PSGFormer         | 14.5  | 17.4  | 18.7   | 18.0 | 19.6 | 20.1  | -           |
-| ResNet-50 | Mask2Former  | PSGFormer<sup>+</sup>   | 16.6  | 19.4  | 20.3   | 18.9 | 21.5 | 22.4  | -           |
-| ResNet-50 | Mask2Former  | **Pair-Net (Ours)**   | **24.7**  | **28.5**  | **30.6**   | **29.6** | **35.6** | **39.6**  | coming soon |
-| Swin-B    | Mask2Former  | Pair-Net<sup>&dagger;</sup> | 25.4  | 28.2  | 29.7   | 33.3 | 39.3 | 42.4  | coming soon |
+| BackBone  | Detector     | Model                       | mR@20    | mR@50    | mR@100   | R@20     | R@50     | R@100    | Checkpoint  |
+| --------- | ------------ | --------------------------- | -------- | -------- | -------- | -------- | -------- | -------- | ----------- |
+| ResNet-50 | Faster R-CNN | IMP                         | 6.5      | 7.1      | 7.2      | 16.5     | 18.2     | 18.6     | -           |
+| ResNet-50 | Faster R-CNN | MOTIFS                      | 9.1      | 9.6      | 9.7      | 20.0     | 21.7     | 22.0     | -           |
+| ResNet-50 | Faster R-CNN | VCTree                      | 9.7      | 10.2     | 10.2     | 20.6     | 22.1     | 22.5     | -           |
+| ResNet-50 | Faster R-CNN | GPS-Net                     | 7.0      | 7.5      | 7.7      | 17.8     | 19.6     | 20.1     | -           |
+| ResNet-50 | DETR         | PSGFormer                   | 14.5     | 17.4     | 18.7     | 18.0     | 19.6     | 20.1     | -           |
+| ResNet-50 | Mask2Former  | PSGFormer<sup>+</sup>       | 16.6     | 19.4     | 20.3     | 18.9     | 21.5     | 22.4     | -           |
+| ResNet-50 | Mask2Former  | **Pair-Net (Ours)**         | **24.7** | **28.5** | **30.6** | **29.6** | **35.6** | **39.6** | coming soon |
+| Swin-B    | Mask2Former  | Pair-Net<sup>&dagger;</sup> | 25.4     | 28.2     | 29.7     | 33.3     | 39.3     | 42.4     | coming soon |
 
 $^{+}$: Replace the backbone of PSGFormer to Mask2Former. <sup>&dagger;</sup>: Pair-Net with Swin-B as backbone.
 
