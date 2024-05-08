@@ -138,3 +138,16 @@ $^{+}$: Replace the backbone of PSGFormer to Mask2Former. <sup>&dagger;</sup>: P
 ## Acknowledgements
 
 Pair-Net is developed based on [MMDetection](https://github.com/open-mmlab/mmdetection) and [OpenPSG](https://github.com/Jingkang50/OpenPSG). We sincerely appreciate the efforts of the developers from the previous codebases.
+
+If you find the codes and models useful for your research, please consider citing our PairNet
+
+```bibtex
+
+@article{wang2023pair,
+  title={Pair then Relation: Pair-Net for Panoptic Scene Graph Generation},
+  author={Wang, Jinghao and Wen, Zhengyu and Li, Xiangtai and Guo, Zujin and Yang, Jingkang and Liu, Ziwei},
+  journal={arXiv preprint arXiv:2307.08699},
+  year={2023}
+}
+
+```
