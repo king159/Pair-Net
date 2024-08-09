@@ -1,6 +1,9 @@
-# Pair then Relation: Pair-Net for Panoptic Scene Graph Generation
 
-<p align="center">
+## <div align="center"> Pair then Relation: Pair-Net for Panoptic Scene Graph Generation<div>
+
+#### <div align="center"> IEEE T-PAMI 2024<div>
+
+<div align="center">
   <br>
   <a href="https://king159.github.io/" target="_blank">Jinghao Wang*</a>,&nbsp;
   Zhengyu Wen*,&nbsp;
@@ -8,27 +11,29 @@
   <a href="https://gseancdat.github.io/" target="_blank">Zujing Guo</a>,&nbsp;
   <a href="http://jingkang50.github.io/" target="_blank">Jingkang Yang</a>,&nbsp;
   <a href="https://liuziwei7.github.io/" target="_blank">Ziwei Liu<sup>&#x2709;</sup></a>
+</div>
+
+<div align="center">
   <br>
   S-Lab, Nanyang Technological University
   <br>
   <sup>*</sup> Equal Contribution&emsp;
   <sup>&#x2709;</sup> Corresponding Author
-</p>
-
+</div>
 
 <img src="./doc/teaser.jpg" align="center" width="100%">
 
-[![PyTorch](https://img.shields.io/badge/PyTorch-1.13.1-%23EE4C2C?logo=pytorch)](https://pytorch.org/)
-[![mmdetection](https://img.shields.io/badge/mmdetection-2.25.1-%231E90FF)](https://github.com/open-mmlab/mmdetection)
-![](https://img.shields.io/github/stars/king159/Pair-Net?style=social)
-![](https://black.readthedocs.io/en/stable/_static/license.svg)
-![](https://img.shields.io/badge/code%20style-black-000000.svg)
-
-[arXiv](https://arxiv.org/abs/2307.08699)
+<div align="center">
+<a href=https://pytorch.org/get-started/previous-versions/
+target="_blank"><img src=https://img.shields.io/badge/PyTorch-1.13.1-%23EE4C2C?logo=pytorch height=20px></a>
+<a href=https://github.com/open-mmlab/mmdetection
+target="_blank"><img src=https://img.shields.io/badge/mmdetection-2.25.1-%231E90FF height=20px></a>
+<a href=https://arxiv.org/abs/2307.08699 target="_blank"><img src=https://img.shields.io/badge/arXiv-2307.08699-b5212f.svg?logo=arxiv height=20px></a>
+</div>
 
 ## Abstract
 
-Panoptic Scene Graph (PSG) is a challenging task in Scene Graph Generation (SGG) that aims to create a more comprehensive scene graph representation using panoptic segmentation instead of boxes. Compared to SGG, PSG has several challenging problems: pixel-level segment outputs and full relationship exploration (It also considers thing and stuff relation). Thus, current PSG methods have limited performance, which hinders downstream tasks or applications. The goal of this work aims to design a novel and strong baseline for PSG. To achieve that, we first conduct an in-depth analysis to identify the bottleneck of the current PSG models, finding that inter-object pair-wise recall is a crucial factor that was ignored by previous PSG methods. Based on this and the recent query-based frameworks, we present a novel framework: Pair then Relation (Pair-Net), which uses a Pair Proposal Network (PPN) to learn and filter sparse pair-wise relationships between subjects and objects. Moreover, we also observed the sparse nature of object pairs for both Motivated by this, we design a lightweight Matrix Learner within the PPN, which directly learn pair-wised relationships for pair proposal generation. Through extensive ablation and analysis, our approach significantly improves upon leveraging the segmenter solid baseline. Notably, our method achieves new state-of-the-art results on the PSG benchmark, with over 10\% absolute gains compared to PSGFormer. The code of this paper is publicly available at https://github.com/king159/Pair-Net.
+Panoptic Scene Graph (PSG) is a challenging task in Scene Graph Generation (SGG) that aims to create a more comprehensive scene graph representation using panoptic segmentation instead of boxes. Compared to SGG, PSG has several challenging problems: pixel-level segment outputs and full relationship exploration (It also considers thing and stuff relation). Thus, current PSG methods have limited performance, which hinders downstream tasks or applications. This work aims to design a novel and strong baseline for PSG. To achieve that, we first conduct an in-depth analysis to identify the bottleneck of the current PSG models, finding that inter-object pair-wise recall is a crucial factor that was ignored by previous PSG methods. Based on this and the recent query-based frameworks, we present a novel framework: **Pair then Relation (Pair-Net)**, which uses a Pair Proposal Network (PPN) to learn and filter sparse pair-wise relationships between subjects and objects. Moreover, we also observed the sparse nature of object pairs for both. Motivated by this, we design a lightweight Matrix Learner within the PPN, which directly learns pair-wised relationships for pair proposal generation. Through extensive ablation and analysis, our approach significantly improves upon leveraging the segmenter solid baseline.Notably, our method achieves over 10% absolute gains compared to our baseline, PSGFormer.
 
 ## Codebase Structure
 
@@ -86,11 +91,11 @@ yes | pip install wandb
 
 ## Pair-Net
 
-Code and trained models will be released soon.
-
 ### Architecture
 
 <img src="./doc/architecture.jpg" align="center" width="100%">
+
+It mainly contains three parts: (a) Panoptic Segmentation Network uses a query-based object segmenter to generate panoptic segmentation and object queries. (b) Pair Proposal Network generates subject-object pairs from object queries, with Matrix Learner to ensure the sparsity property. (c) The relation Fusion module models the interaction between pair-wised queries and relation queries and predicts final relation labels.
 
 ### Training
 
@@ -134,14 +139,13 @@ python tools/test.py \
 
 $^{+}$: Replace the backbone of PSGFormer to Mask2Former. <sup>&dagger;</sup>: Pair-Net with Swin-B as backbone.
 
-
 ## Acknowledgements
 
-Pair-Net is developed based on [MMDetection](https://github.com/open-mmlab/mmdetection) and [OpenPSG](https://github.com/Jingkang50/OpenPSG). We sincerely appreciate the efforts of the developers from the previous codebases.
+Pair-Net is developed based on [MMDetection](https://github.com/open-mmlab/mmdetection) and [OpenPSG](https://github.com/Jingkang50/OpenPSG). We sincerely appreciate the efforts of the developers from the previous codebase.
 
-If you find the codes and models useful for your research, please consider citing our PairNet
+If you find the codes and models useful for your research, please consider citing our PairNet:
 
-```bibtex
+``` bibtex
 
 @article{wang2023pair,
   title={Pair then Relation: Pair-Net for Panoptic Scene Graph Generation},
