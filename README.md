@@ -6,7 +6,7 @@
 <div align="center">
   <br>
   <a href="https://king159.github.io/" target="_blank">Jinghao Wang*</a>,&nbsp;
-  Zhengyu Wen*,&nbsp;
+  <a href="https://scholar.google.com/citations?user=3bzBnCIAAAAJ" target="_blank">Zhengyu Wen*</a>,&nbsp;
   <a href="https://lxtgh.github.io/" target="_blank">Xiangtai Li</a>,&nbsp;
   <a href="https://gseancdat.github.io/" target="_blank">Zujing Guo</a>,&nbsp;
   <a href="http://jingkang50.github.io/" target="_blank">Jingkang Yang</a>,&nbsp;
@@ -126,18 +126,20 @@ python tools/test.py \
 
 ### Results
 
-| BackBone  | Detector     | Model                       | mR@20    | mR@50    | mR@100   | R@20     | R@50     | R@100    | Checkpoint  |
-| --------- | ------------ | --------------------------- | -------- | -------- | -------- | -------- | -------- | -------- | ----------- |
-| ResNet-50 | Faster R-CNN | IMP                         | 6.5      | 7.1      | 7.2      | 16.5     | 18.2     | 18.6     | -           |
-| ResNet-50 | Faster R-CNN | MOTIFS                      | 9.1      | 9.6      | 9.7      | 20.0     | 21.7     | 22.0     | -           |
-| ResNet-50 | Faster R-CNN | VCTree                      | 9.7      | 10.2     | 10.2     | 20.6     | 22.1     | 22.5     | -           |
-| ResNet-50 | Faster R-CNN | GPS-Net                     | 7.0      | 7.5      | 7.7      | 17.8     | 19.6     | 20.1     | -           |
-| ResNet-50 | DETR         | PSGFormer                   | 14.5     | 17.4     | 18.7     | 18.0     | 19.6     | 20.1     | -           |
-| ResNet-50 | Mask2Former  | PSGFormer<sup>+</sup>       | 16.6     | 19.4     | 20.3     | 18.9     | 21.5     | 22.4     | -           |
-| ResNet-50 | Mask2Former  | **Pair-Net (Ours)**         | **24.7** | **28.5** | **30.6** | **29.6** | **35.6** | **39.6** | coming soon |
-| Swin-B    | Mask2Former  | Pair-Net<sup>&dagger;</sup> | 25.4     | 28.2     | 29.7     | 33.3     | 39.3     | 42.4     | coming soon |
+| BackBone  | Detector     | Model                       | mR@20    | mR@50    | mR@100   | R@20     | R@50     | R@100    |
+| --------- | ------------ | --------------------------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| ResNet-50 | Faster R-CNN | IMP                         | 6.5      | 7.1      | 7.2      | 16.5     | 18.2     | 18.6     |
+| ResNet-50 | Faster R-CNN | MOTIFS                      | 9.1      | 9.6      | 9.7      | 20.0     | 21.7     | 22.0     |
+| ResNet-50 | Faster R-CNN | VCTree                      | 9.7      | 10.2     | 10.2     | 20.6     | 22.1     | 22.5     |
+| ResNet-50 | Faster R-CNN | GPS-Net                     | 7.0      | 7.5      | 7.7      | 17.8     | 19.6     | 20.1     |
+| ResNet-50 | DETR         | PSGFormer                   | 14.5     | 17.4     | 18.7     | 18.0     | 19.6     | 20.1     |
+| ResNet-50 | Mask2Former  | PSGFormer<sup>+</sup>       | 16.6     | 19.4     | 20.3     | 18.9     | 21.5     | 22.4     |
+| ResNet-50 | Mask2Former  | **Pair-Net (Ours)**         | **24.7** | **28.5** | **30.6** | **29.6** | **35.6** | **39.6** |
+| Swin-B    | Mask2Former  | Pair-Net<sup>&dagger;</sup> | 25.4     | 28.2     | 29.7     | 33.3     | 39.3     | 42.4     |
 
-$^{+}$: Replace the backbone of PSGFormer to Mask2Former. <sup>&dagger;</sup>: Pair-Net with Swin-B as backbone.
+$^{+}$: Replace the backbone of PSGFormer to Mask2Former. 
+
+<sup>&dagger;</sup>: Pair-Net with Swin-B as backbone.
 
 ## Acknowledgements
 
@@ -147,11 +149,12 @@ If you find the codes and models useful for your research, please consider citin
 
 ``` bibtex
 
-@article{wang2023pair,
-  title={Pair then Relation: Pair-Net for Panoptic Scene Graph Generation},
+@article{wang2024pair,
+  title={Pair then relation: Pair-net for panoptic scene graph generation},
   author={Wang, Jinghao and Wen, Zhengyu and Li, Xiangtai and Guo, Zujin and Yang, Jingkang and Liu, Ziwei},
-  journal={arXiv preprint arXiv:2307.08699},
-  year={2023}
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2024},
+  publisher={IEEE}
 }
 
 ```
